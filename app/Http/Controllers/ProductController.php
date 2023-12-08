@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,13 +13,13 @@ class ProductController extends Controller
         return response()->json($products)->setStatusCode(200, 'OK');
     }
 
-    public function create(Request $request) {
+    public function create(ProductRequest $request) {
         $product = new Product($request->all());
         $product->save();
         return response()->json($product)->setStatusCode(201, 'CREATED');
     }
 
-    public function update(Request $request, $id) {
+    public function update(ProductRequest $request, $id) {
         $product = Product::where('id', '=', $id)->first();
         if (isset($request->name)) {
             $product->name = $request->name;

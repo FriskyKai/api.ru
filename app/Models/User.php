@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
-class User extends Model
+class User extends \Illuminate\Foundation\Auth\User
 {
     use HasFactory;
 
@@ -26,5 +28,11 @@ class User extends Model
 
     public function orders() {
         return $this->hasMany(Order::class);
+    }
+
+    public function generateToken() {
+        $this->api_token = Hash::make(Str::random());
+        $this->save();
+        return $this->api_token;
     }
 }

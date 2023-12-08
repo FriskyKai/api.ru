@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('login')->unique();
             $table->string('password');
             $table->string('email')->unique();
+            $table->string('api_token')->nullable()->unique();
             $table->foreignId('role_id')->default(1)->constrained()->onUpdate('cascade');
             $table->timestamps();
         });

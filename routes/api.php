@@ -18,29 +18,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
+
 Route::get('/roles', [RoleController::class, 'index']);
-Route::post('/roles/new', [RoleController::class, 'create']);
+Route::post('/roles', [RoleController::class, 'create']);
 Route::get('/roles/{id}', [RoleController::class, 'view']);
-Route::patch('/roles/{id}/update', [RoleController::class, 'update']);
-Route::delete('/roles/{id}/delete', [RoleController::class, 'delete']);
+Route::patch('/roles/{id}', [RoleController::class, 'update']);
+Route::delete('/roles/{id}', [RoleController::class, 'delete']);
 
 Route::get('/users', [UserController::class, 'index']);
-Route::post('/users/new', [UserController::class, 'create']);
+Route::post('/users', [UserController::class, 'create']);
 Route::get('/users/{id}', [UserController::class, 'view']);
-Route::patch('/users/{id}/update', [UserController::class, 'update']);
-Route::delete('/users/{id}/delete', [UserController::class, 'delete']);
+Route::patch('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'delete']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::post('/categories/new', [CategoryController::class, 'create']);
+Route::post('/categories', [CategoryController::class, 'create']);
 Route::get('/categories/{id}', [CategoryController::class, 'view']);
-Route::patch('/categories/{id}/update', [CategoryController::class, 'update']);
-Route::delete('/categories/{id}/delete', [CategoryController::class, 'delete']);
+Route::patch('/categories/{id}', [CategoryController::class, 'update']);
+Route::delete('/categories/{id}', [CategoryController::class, 'delete']);
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::post('/products/new', [ProductController::class, 'create']);
+Route::post('/products', [ProductController::class, 'create']);
 Route::get('/products/{id}', [ProductController::class, 'view']);
-Route::patch('/products/{id}/update', [ProductController::class, 'update']);
-Route::delete('/products/{id}/delete', [ProductController::class, 'delete']);
+Route::patch('/products/{id}', [ProductController::class, 'update']);
+Route::delete('/products/{id}', [ProductController::class, 'delete']);
 
 
 
